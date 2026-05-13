@@ -42,7 +42,7 @@ async def fetch_recommendations(movie_id: int):
         ids = await breaker.call(call_service)
         return [{"id": i, "title": f"Movie #{i}"} for i in ids]
     except Exception as e:
-        print(f"[MovieService] Fallback activ: {e}")
+        print(f"[MovieService] Fallback activated: {e}")
         return FALLBACK_RECOMMENDATIONS
 
 @app.get("/circuit-status")
